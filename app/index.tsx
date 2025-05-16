@@ -1,62 +1,43 @@
 import { useRouter } from "expo-router";
+import * as React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import Colors from "../constant/colors";
 
 export default function Index() {
   const router = useRouter();
-
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: Colors.WHITE,
-      }}
-    >
+    <View className="flex-1 bg-white">
       <Image
         source={require("../assets/images/landing.jpg")}
-        style={{
-          width: "100%",
-          height: 300,
-          resizeMode: "cover",
-        }}
+        className="w-full h-72 object-cover"
       />
 
-      <View
-        style={{
-          padding: 20,
-          backgroundColor: Colors.PRIMARY,
-          flex: 1,
-          borderTopLeftRadius: 20,
-          borderTopRightRadius: 20,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Text style={{ fontSize: 32, fontWeight: "bold", color: Colors.WHITE, marginBottom: 10 }}>
+      <View className="flex-1 bg-blue-600 px-6  justify-center items-center">
+        <Text className="text-4xl font-bold text-white mb-3 text-center">
           Welcome to Qbox
         </Text>
 
-        {/* <Text style={{ fontSize: 18, color: Colors.WHITE, marginBottom: 5 }}>
+        <Text className="text-lg text-white mb-2 text-center">
           An Inventory Management Solution
-        </Text> */}
+        </Text>
 
-        <Text style={{ fontSize: 14, color: Colors.WHITE, textAlign: "center", marginBottom: 60 }}>
-          Keep track of your inventory stock easily and efficiently.
+        <Text className="text-base text-white text-center mb-16 max-w-[80%]">
+          Keep track of your inventory stock easily and efficiently with our powerful tools.
         </Text>
 
         <TouchableOpacity
-          style={{
-            backgroundColor: Colors.WHITE,
-            paddingVertical: 12,
-            paddingHorizontal: 30,
-            borderRadius: 8,
-          }}
-          onPress={() => router.push({ pathname: "/home" })}
+          className="bg-white py-4 px-12 rounded-lg shadow-lg shadow-blue-900/50 active:opacity-80"
+          onPress={() => router.navigate("home" as any)}
         >
-          <Text style={{ color: Colors.PRIMARY, fontSize: 16, fontWeight: "bold" }}>
+          <Text className="text-blue-600 text-lg font-bold">
             Get Started
           </Text>
         </TouchableOpacity>
+
+        <View className="absolute bottom-8">
+          <Text className="text-blue-200 text-sm">
+            Your inventory management made simple
+          </Text>
+        </View>
       </View>
     </View>
   );
